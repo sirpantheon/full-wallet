@@ -1,6 +1,7 @@
 import { Roboto } from 'next/font/google'
 import Head from 'next/head'
 import styles from '../styles/home.module.scss'
+import { BsWallet2 } from 'react-icons/bs';
 
 const roboto = Roboto({
   weight: ['400', '700'],
@@ -16,8 +17,17 @@ export default function Home() {
         <title>Full.Wallet | Sua carteira completa... </title>
       </Head>
       <main className={`${roboto.variable} font-sans ${styles.container}`}>
-        <h1 className={styles.title}>Esse sistema foi feito para voce organizar as suas contas</h1>
-        <p>Tenha mais controle de tudo que entra e sai da sua conta, essa ferramenta facilitará a sua vida financeira...</p>
+        <section className={styles.info}>
+          <BsWallet2 className={styles.imagem} />
+          <p className={styles.title}>
+            Esse sistema foi feito para voce organizar as suas contas
+            Tenha mais controle de tudo que entra e sai da sua conta, essa ferramenta facilitará a sua vida financeira...
+          </p>
+          <div className={styles.infoContent}>
+            <span>+12 Registros</span>
+            <span>+90 Comentarios</span>
+          </div>
+        </section>
       </main>
     </div>
   )
