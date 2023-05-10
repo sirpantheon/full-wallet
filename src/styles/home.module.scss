@@ -1,7 +1,7 @@
 .container{
   background-color: #0f0f0f;
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 5em);
   display: flex;
   justify-content: center;
   align-items: center; 
@@ -57,4 +57,28 @@
     color:aliceblue;
     border: solid 1px aliceblue;
   }
+}
+
+@media screen and (max-width: 580px){
+  .info {
+    max-width: 80%;
+  }
+
+  .imagem{
+    font-size: 200px;
+    max-width: 250px;
+  }
+
+  .infoContent{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin: 50px 0;
+
+    span{
+      width: 100%;
+      margin: 5px 0;
+    }
+  }
+
 }
