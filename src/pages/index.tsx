@@ -20,8 +20,7 @@ export default function Home() {
         <section className={styles.info}>
           <BsWallet2 className={styles.imagem} />
           <p className={styles.title}>
-            Esse sistema foi feito para voce organizar as suas contas
-            Tenha mais controle de tudo que entra e sai da sua conta, essa ferramenta facilitará a sua vida financeira...
+            Esse sistema foi feito para voce organizar e ter controle de quantos insumos voce usar ao longo do més... registre tudo.
           </p>
           <div className={styles.infoContent}>
             <span>+12 Registros</span>
