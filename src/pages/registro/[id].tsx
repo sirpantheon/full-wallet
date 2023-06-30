@@ -29,30 +29,47 @@ export default function PageDetailRegistro({ item }: IDetailRegistro) {
 
       <main className={styles.main}>
         <h1>Registro</h1>
-        <article>
-          <label>Impressora</label>
-          <p>{item.impressora}</p>
+        <article className={styles.content}>
+          <button>
+            <label>Impressora</label>
+            <p>{item.impressora}</p>
+          </button>
 
-          <label>Toner</label>
-          <p>{item.toner}</p>
+          <button>
+            <label>Toner</label>
+            <p>{item.toner}</p>
+          </button>
 
-          <label>Nº Serie</label>
-          <p>{item.serie}</p>
+          <button>
+            <label>Nº Serie</label>
+            <p>{item.serie}</p>
+          </button>
 
-          <label>Setor</label>
-          <p>{item.setor}</p>
+          <button>
+            <label>Setor</label>
+            <p>{item.setor}</p>
+          </button>
 
-          <label>Ping</label>
-          <p>{item.ping}</p>
+          <button>
+            <label>Ping</label>
+            <p>{item.ping}</p>
+          </button>
 
-          <label>Data</label>
-          <p>{item.created}</p>
+          <button>
+            <label>Data</label>
+            <p>{FormatDate(item.created)}</p>
+          </button>
 
-          <label>Realizado</label>
-          <p>{item.done}</p>
+          <button>
+            <label>Observação</label>
+            <p>{item.observacao}</p>
+          </button>
 
-          <label>Observação</label>
-          <p>{item.observacao}</p>
+          <button>
+            <label>Realizado</label>
+            <p>{item.done}</p>
+          </button>
+
         </article>
       </main>
     </div>
