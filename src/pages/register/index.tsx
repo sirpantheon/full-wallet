@@ -93,7 +93,7 @@ export default function Register({ user }: IHomeProps) {
         ping: inputPing,
         observacao: inputObs,
         done: done,
-        created:new Date(inputDate),
+        created:inputDate,
         user: user?.email
       });
 

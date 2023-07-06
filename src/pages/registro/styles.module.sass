@@ -3,15 +3,14 @@
   height: calc( 100vh - 5em )
   display: flex
   justify-content: center
-  background-color: #0f0f0f
+  background-color: #FFF
 
 .main
   max-width: 1024px
   width: 100%
-  
   justify-content: flex-start
   flex-direction: column
-  color: #FFF
+  color: #0f0f0f
 
   h1
     display: flex
@@ -34,9 +33,8 @@
     -webkit-box-shadow: 6px 6px 22px 9px rgba(0,0,0,0.75)
     -moz-box-shadow: 6px 6px 22px 9px rgba(0,0,0,0.75)
     box-shadow: 0px 0px 10px 0px #ffffffbf
-    color: #fff
-    border-radius: 3em
-    border: double 5px #14FAB9
+    color: #0f0f0f
+    border-bottom: double 5px #14FAB9
     margin: 2rem
     padding: 10px
     transition: all 0.6s
@@ -45,3 +43,8 @@
     :hover
       opacity: .5
 
+@media screen and (max-width: 580px)
+  
+  .content
+    button
+      width: 100%

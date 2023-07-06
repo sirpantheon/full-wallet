@@ -31,42 +31,42 @@ export default function PageDetailRegistro({ item }: IDetailRegistro) {
         <h1>Registro</h1>
         <article className={styles.content}>
           <button>
-            <label>Impressora</label>
+            <strong>Impressora</strong>
             <p>{item.impressora}</p>
           </button>
 
           <button>
-            <label>Toner</label>
+            <strong>Toner</strong>
             <p>{item.toner}</p>
           </button>
 
           <button>
-            <label>Nº Serie</label>
+            <strong>Nº Serie</strong>
             <p>{item.serie}</p>
           </button>
 
           <button>
-            <label>Setor</label>
+            <strong>Setor</strong>
             <p>{item.setor}</p>
           </button>
 
           <button>
-            <label>Ping</label>
+            <strong>Ping</strong>
             <p>{item.ping}</p>
           </button>
 
           <button>
-            <label>Data</label>
+            <strong>Data</strong>
             <p>{FormatDate(item.created)}</p>
           </button>
 
           <button>
-            <label>Observação</label>
+            <strong>Observação</strong>
             <p>{item.observacao}</p>
           </button>
 
           <button>
-            <label>Realizado</label>
+            <strong>Realizado</strong>
             <p>{item.done}</p>
           </button>
 

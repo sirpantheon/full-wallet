@@ -1,7 +1,10 @@
 export function FormatDate(date: string) {
-  const time = new Date(date).toLocaleDateString("pt-BR", { day: 'numeric', month: 'long', year: 'numeric' })
-  
-  return time
+  const day = new Date(date).getDate() + 1 < 9 ? `0${new Date(date).getDate() + 1}` : new Date(date).getDate() + 1
+  const month = new Date(date).getMonth() + 1 < 9 ? `0${new Date(date).getMonth() + 1}` : new Date(date).getMonth() + 1
+  const years = new Date(date).getFullYear()
+  const FullDate = day + "/" + month + "/" + years
+
+  return FullDate
 }
 
 export function MaskPing(Ping: string) {
