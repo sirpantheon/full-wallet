@@ -36,42 +36,42 @@ export default function Home({ toner }: IHomeProps) {
   const QuantTonner = collection(DB, "toners")
   const toners = query(QuantTonner, where("toner", "==", "w1330x"));
 
-  console.log(QuantTonner)
+  
 
-  useEffect(() => {
-    async function loadRegister() {
-      const registerRef = collection(DB, "w1330x")
-      const q = query(
-        registerRef,
-        orderBy("created", "desc"),
-        where("toner", "==", toner)
-      )
-      onSnapshot(q, (snapshot) => {
-        let lista = [] as IHomeProps[]
+  // useEffect(() => {
+  //   async function loadRegister() {
+  //     const registerRef = collection(DB, "w1330x")
+  //     const q = query(
+  //       registerRef,
+  //       orderBy("created", "desc"),
+  //       where("toner", "==", toner)
+  //     )
+  //     onSnapshot(q, (snapshot) => {
+  //       let lista = [] as IHomeProps[]
 
-        console.log(toner)
-        snapshot.forEach((doc) => {
-          lista.push({
-            id: doc.id,
-            created: doc.data().created,
-            impressora: doc.data().impressora,
-            observacao: doc.data().observacao,
-            ping: doc.data().ping,
-            done: doc.data().done,
-            serie: doc.data().serie,
-            setor: doc.data().setor,
-            toner: doc.data().toner,
-            user: doc.data().user,
-          })
+  //       console.log(toner)
+  //       snapshot.forEach((doc) => {
+  //         lista.push({
+  //           id: doc.id,
+  //           created: doc.data().created,
+  //           impressora: doc.data().impressora,
+  //           observacao: doc.data().observacao,
+  //           ping: doc.data().ping,
+  //           done: doc.data().done,
+  //           serie: doc.data().serie,
+  //           setor: doc.data().setor,
+  //           toner: doc.data().toner,
+  //           user: doc.data().user,
+  //         })
 
-        })
-        setRegistros(lista)
+  //       })
+  //       setRegistros(lista)
 
-      })
+  //     })
 
-    }
-    loadRegister()
-  }, [toner])
+  //   }
+  //   loadRegister()
+  // }, [toner])
 
   
 

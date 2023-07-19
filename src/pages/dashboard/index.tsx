@@ -2,16 +2,94 @@ import { GetServerSideProps } from 'next'
 import styles from './dashboard.module.sass'
 import Head from 'next/head'
 import { getSession } from 'next-auth/react'
+import { useState, useEffect } from 'react';
+import { DB } from '../../services/firebaseConnection'
+import { collection, query, orderBy, where, onSnapshot } from 'firebase/firestore'
+import Registro from '@/components/registro'
 
+interface IHomeProps {
+  user: {
+    email: string
+  }
+}
 
-export default function Dashboard() {
+interface IRegistros {
+  id: string
+  created: string
+  impressora: string
+  observacao?: string
+  ping: string
+  done: boolean
+  serie: string
+  setor: string
+  toner: string
+  user: string
+  contador?: number
+}
+
+export default function Register({ user }: IHomeProps) {
+
+  const [registros, setRegistros] = useState<IRegistros[]>([])
+
+  useEffect(() => {
+    async function loadRegister() {
+      const registerRef = collection(DB, "registertonner")
+      const q = query(
+        registerRef,
+        orderBy("created", "desc"),
+        where("user", "==", user?.email)
+      )
+      onSnapshot(q, (snapshot) => {
+        let lista = [] as IRegistros[]
+
+        snapshot.forEach((doc) => {
+          if (doc.data().toner === "w1330x") {
+            lista.push({
+              id: doc.id,
+              created: doc.data().created,
+              impressora: doc.data().impressora,
+              observacao: doc.data().observacao,
+              ping: doc.data().ping,
+              done: doc.data().done,
+              serie: doc.data().serie,
+              setor: doc.data().setor,
+              toner: doc.data().toner,
+              user: doc.data().user,
+            })
+          }
+
+        })
+        console.log(lista.length)
+        setRegistros(lista)
+      })
+
+    }
+    loadRegister()
+  }, [user?.email])
+
   return (
     <div className={styles.container}>
       <Head>
-        <title>Meu Painel</title>
+        <title>Registrar</title>
       </Head>
+      <h1>Minhas Tarefas</h1>
 
+      {registros.map((item) => (
+        <Registro
+          key={item.id}
+          id={item.id}
+          created={item.created}
+          done={item.done}
+          impressora={item.impressora}
+          observacao={item.observacao}
+          ping={item.ping}
+          serie={item.serie}
+          setor={item.setor}
+          toner={item.toner}
+          user={item.user}
+        />
 
+      ))}
     </div>
   )
 }
@@ -29,6 +107,10 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
     }
   }
   return {
-    props: {}
+    props: {
+      user: {
+        email: session?.user?.email
+      }
+    }
   }
 }
