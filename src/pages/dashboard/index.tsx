@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
 import { DB } from '../../services/firebaseConnection'
 import { collection, query, orderBy, where, onSnapshot } from 'firebase/firestore'
 import Registro from '@/components/registro'
+import { ResponsiveContainer, LineChart, Line, XAxis, CartesianGrid, Tooltip } from "recharts"
 
 interface IHomeProps {
   user: {
@@ -25,6 +26,16 @@ interface IRegistros {
   toner: string
   user: string
   contador?: number
+}
+
+interface IHistoryBox {
+  data: {
+    month: string
+    amountOutput: number
+    amountEntry: number
+  }[],
+  lineColorEntry: string
+  lineColorOutput: string
 }
 
 export default function Register({ user }: IHomeProps) {
@@ -70,9 +81,22 @@ export default function Register({ user }: IHomeProps) {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Registrar</title>
+        <title>Dashboard</title>
       </Head>
-      <h1>Minhas Tarefas</h1>
+      <h1>Dashboard</h1>
+
+      <h2>Historico</h2>
+      <ResponsiveContainer>
+        <LineChart data={[]}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#cecece" />
+          <XAxis datakey="month" stroke="#cecece" />
+          <Tooltip />
+          <Line type="monotone" datakey="amountOutput" name="quantidade" stroke="#0f0" strokeWidth={5} dot={{ r: 5 }} activeDot={{ r: 8 }} />
+          <Line type="monotone" datakey="amountEntry" name="estoque" stroke="#f00" strokeWidth={5} dot={{ r: 5 }} activeDot={{ r: 8 }} />
+        </LineChart>
+      </ResponsiveContainer>
+
+      <h2>Filtros</h2>
 
       {registros.map((item) => (
         <Registro
