@@ -86,7 +86,7 @@ export default function Register({ user }: IHomeProps) {
       <h1>Dashboard</h1>
 
       <h2>Historico</h2>
-      <ResponsiveContainer>
+      {/* <ResponsiveContainer>
         <LineChart data={[]}>
           <CartesianGrid strokeDasharray="3 3" stroke="#cecece" />
           <XAxis datakey="month" stroke="#cecece" />
@@ -94,7 +94,7 @@ export default function Register({ user }: IHomeProps) {
           <Line type="monotone" datakey="amountOutput" name="quantidade" stroke="#0f0" strokeWidth={5} dot={{ r: 5 }} activeDot={{ r: 8 }} />
           <Line type="monotone" datakey="amountEntry" name="estoque" stroke="#f00" strokeWidth={5} dot={{ r: 5 }} activeDot={{ r: 8 }} />
         </LineChart>
-      </ResponsiveContainer>
+      </ResponsiveContainer> */}
 
       <h2>Filtros</h2>
 
